@@ -5,8 +5,8 @@ import br.com.studies.pic_pay_project.enums.UserType;
 
 import java.time.LocalDateTime;
 
-public class Transfer {
-    private Integer id;
+public class TransferDetails {
+    private Long id;
     private String destination;
     private String origin;
     private UserType userType;
