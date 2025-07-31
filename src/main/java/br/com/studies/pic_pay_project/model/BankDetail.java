@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "BANK_DETAILS")
-public class BankDetails {
+public class BankDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -15,7 +15,17 @@ public class BankDetails {
     private Integer account;
     private String pixKey;
     private String bankName;
-    //TODO FK User
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getAgency() {
         return agency;
