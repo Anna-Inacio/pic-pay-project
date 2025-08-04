@@ -16,7 +16,7 @@ public class BankDetail {
     private String pixKey;
     private String bankName;
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public User getUser() {
