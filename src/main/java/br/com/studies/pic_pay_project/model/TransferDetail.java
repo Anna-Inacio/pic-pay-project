@@ -13,8 +13,25 @@ public class TransferDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private String destination;
-    private String origin;
+
+    public TransferDestination getDestination() {
+        return destination;
+    }
+
+    public void setDestination(TransferDestination destination) {
+        this.destination = destination;
+    }
+
+    public TransferOrigin getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(TransferOrigin origin) {
+        this.origin = origin;
+    }
+
+    private TransferDestination destination;
+    private TransferOrigin origin;
     private UserType userType;
     private LocalDateTime dateTime;
     private TransferStatus transferStatus;
@@ -25,22 +42,6 @@ public class TransferDetail {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
     }
 
     public UserType getUserType() {
