@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
-CREATE TABLE public.bank_details (
+CREATE TABLE IF NOT EXISTS public.bank_details (
 	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	agency int4 NULL,
 	digit int4 NULL,
@@ -10,7 +10,7 @@ CREATE TABLE public.bank_details (
 	user_id uuid NULL
 );
 
-CREATE TABLE public.transfer_details (
+CREATE TABLE IF NOT EXISTS public.transfer_details (
 	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	destination varchar(255) NULL,
 	origin varchar(255) NULL,
@@ -19,7 +19,7 @@ CREATE TABLE public.transfer_details (
 	transfer_status varchar(255) NULL
 );
 
-CREATE TABLE public.users (
+CREATE TABLE IF NOT EXISTS public.users (
 	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	name varchar(255) NULL,
 	document_type varchar(255) NULL,
