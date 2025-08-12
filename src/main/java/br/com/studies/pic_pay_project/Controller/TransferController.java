@@ -19,12 +19,15 @@ public class TransferController {
 
     @PostMapping
     public ResponseEntity<TransferResponse> makeTransfer(@RequestBody TransferRequest transferRequest) {
-        var transferOrigin = getTransferOrigin(); //método para obter os dados de quem está fazendo a transferência
-        TransferResponse response = new TransferResponse();
-        response.setTransferRequest(transferRequest);
-        response.setTransferOrigin(transferOrigin); //get dados de quem está fazendo a transferência
-
-        TransferResponse response = repository.save(response);
-        return ResponseEntity.status(201).body(response);
-    }
+    //buscar na tabela de dados bancários de usuários o campo balance do remetente(conta de origem)
+        //se o balance for menor que o valor da transferência, retornar erro 400 Bad Request
+        //se não, continuar com a transferência
+            //consultar autorizador de transferências
+            //enviar o valor da transferência para a conta de destino
+                //se sucesso,
+                    //retornar 201 Created com os dados da transferência
+                    //atualizar o valor da transferência do balance do remetente
+                //se falhar,
+                    //retornar 500 Internal Server Error (erro customizado)
+                    // manter o balance do remetente (não atualizar o balance do remetente)
 }

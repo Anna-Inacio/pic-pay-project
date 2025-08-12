@@ -2,7 +2,6 @@ package br.com.studies.pic_pay_project.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,8 +15,8 @@ public class User {
     private String documentNumber;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "user")
-    private List<BankDetail> bankDetail;
+    @OneToOne(mappedBy = "user")
+    private BankAccount bankAccount;
 
     public UUID getId() {
         return id;
@@ -67,12 +66,12 @@ public class User {
         this.password = password;
     }
 
-    public List<BankDetail> getBankDetail() {
-        return bankDetail;
+    public BankAccount getBankAccount() {
+        return bankAccount;
     }
 
-    public void setBankDetail(List<BankDetail> bankDetail) {
-        this.bankDetail = bankDetail;
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
 }

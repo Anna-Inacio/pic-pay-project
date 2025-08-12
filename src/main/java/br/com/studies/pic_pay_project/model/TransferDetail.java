@@ -13,6 +13,13 @@ public class TransferDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    @Embedded
+    private TransferDestination destination;
+    @Embedded
+    private TransferOrigin origin;
+    private UserType userType;
+    private LocalDateTime dateTime;
+    private TransferStatus transferStatus;
 
     public TransferDestination getDestination() {
         return destination;
@@ -29,12 +36,6 @@ public class TransferDetail {
     public void setOrigin(TransferOrigin origin) {
         this.origin = origin;
     }
-
-    private TransferDestination destination;
-    private TransferOrigin origin;
-    private UserType userType;
-    private LocalDateTime dateTime;
-    private TransferStatus transferStatus;
 
     public UUID getId() {
         return id;

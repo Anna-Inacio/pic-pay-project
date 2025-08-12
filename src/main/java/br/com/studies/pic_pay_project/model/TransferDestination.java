@@ -1,23 +1,14 @@
 package br.com.studies.pic_pay_project.model;
 
 import br.com.studies.pic_pay_project.enums.DocumentType;
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class TransferDestination {
     private String beneficiaryName;
     private DocumentType document;
-    private String agencyNumber;
-    private String accountNumber;
-    private String bankCode;
-    private AccountType accountType;
+    private BankAccount bankAccount;
     private Long transferAmount;
-
-    public DocumentType getDocument() {
-        return document;
-    }
-
-    public void setDocument(DocumentType document) {
-        this.document = document;
-    }
 
     public String getBeneficiaryName() {
         return beneficiaryName;
@@ -27,36 +18,20 @@ public class TransferDestination {
         this.beneficiaryName = beneficiaryName;
     }
 
-    public String getAgencyNumber() {
-        return agencyNumber;
+    public DocumentType getDocument() {
+        return document;
     }
 
-    public void setAgencyNumber(String agencyNumber) {
-        this.agencyNumber = agencyNumber;
+    public void setDocument(DocumentType document) {
+        this.document = document;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public BankAccount getBankAccount() {
+        return bankAccount;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getBankCode() {
-        return bankCode;
-    }
-
-    public void setBankCode(String bankCode) {
-        this.bankCode = bankCode;
-    }
-
-    public AccountType getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(AccountType accountType) {
-        this.accountType = accountType;
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public Long getTransferAmount() {
@@ -66,5 +41,4 @@ public class TransferDestination {
     public void setTransferAmount(Long transferAmount) {
         this.transferAmount = transferAmount;
     }
-
 }

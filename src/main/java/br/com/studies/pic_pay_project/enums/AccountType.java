@@ -1,4 +1,4 @@
-package br.com.studies.pic_pay_project.model;
+package br.com.studies.pic_pay_project.enums;
 
 public enum AccountType {
     CURRENT_ACCOUNT,

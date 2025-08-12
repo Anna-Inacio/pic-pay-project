@@ -1,14 +1,13 @@
 package br.com.studies.pic_pay_project.model;
 
 import br.com.studies.pic_pay_project.enums.DocumentType;
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class TransferOrigin {
     private String originName;
     private DocumentType document;
-    private String agencyNumber;
-    private String accountNumber;
-    private String bankCode;
-    private AccountType accountType;
+    private BankAccount bankAccount;
 
     public String getOriginName() {
         return originName;
@@ -26,35 +25,11 @@ public class TransferOrigin {
         this.document = document;
     }
 
-    public String getAgencyNumber() {
-        return agencyNumber;
+    public BankAccount getBankAccount() {
+        return bankAccount;
     }
 
-    public void setAgencyNumber(String agencyNumber) {
-        this.agencyNumber = agencyNumber;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getBankCode() {
-        return bankCode;
-    }
-
-    public void setBankCode(String bankCode) {
-        this.bankCode = bankCode;
-    }
-
-    public AccountType getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(AccountType accountType) {
-        this.accountType = accountType;
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
     }
 }
